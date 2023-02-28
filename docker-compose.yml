@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    restart: always
+    ports:
+      - 8086:8086
+    volumes:
+      - ./influxdb:/var/lib/influxdb
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf:ro
+    environment:
+      INFLUXDB_USER: influxdb
+      INFLUXDB_USER_PASSWORD: influxdb
